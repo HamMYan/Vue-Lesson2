@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 2</title>
+    <style>
+        img {
+            width: 250px;
+        }
+
+        .bg {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Bind</h1>
+
+        <h3>Image</h3>
+        <hr>
+        <img v-bind:src="url" alt="">
+        <br>
+
+        <h3>Text Size</h3>
+        <hr>
+        <p :style="{fontSize: size1}">Text 1</p>
+        <p v-bind:style="{fontSize: size2 + 'px'}">Text 2</p>
+        <p v-bind:style="{'font-size': size2 + 'px'}">Text 3</p>
+        <br>
+
+        <h3>Conditional background color</h3>
+        <hr>
+        <div class="bg" v-bind:style="{backgroundColor:isImportant ? 'red' : 'blue'}"></div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoRGyXmHy_6aIgXYqWHdOT3KjfmnuSyxypw&s",
+                    size1: '30px',
+                    size2: 30,
+                    isImportant: true
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
